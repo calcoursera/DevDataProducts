@@ -1,4 +1,4 @@
-Developing Data Products Presententation 
+Developing Data Products Presentation 
 ========================================================
 author: Calai
 autosize: true
@@ -33,7 +33,7 @@ The Data
 type: sub-section
 This application is based on the U.S. National Oceanic and Atmospheric Administration's (NOAA) storm database from the source below, that was used for the Reproducible Research Course assignment from Coursera.
 
-Source [here](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2) 
+Source https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2
 
 Source code for the project is available on the [GitHub] https://github.com/calcoursera/DevDataProducts
 
@@ -43,8 +43,13 @@ Data
 type: sub-section
 Read Data
 ```{r}
-library(data.table)
-dt <- fread('events.agg.csv')
-head(dt)
+data <- read.csv("events.agg.csv", sep=",", header=T)
+colnames(data)[1] <- "Year"
+colnames(data)[3] <- "Evtype"
+colnames(data)[4] <- "Count"
+colnames(data)[5] <- "Fatalities"
+colnames(data)[6] <- "Injuries"
+colnames(data)[7] <- "PropDamage"
+head(data)
 ```
 

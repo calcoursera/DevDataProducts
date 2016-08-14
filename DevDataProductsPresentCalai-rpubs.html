@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Developing Data Products Presententation </title>
+  <title>Developing Data Products Presentation </title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -749,7 +749,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="default" data-transition-speed="default">
-<h1>Developing Data Products Presententation </h1><p>Calai<br/>Sun Aug 14 19:16:34 2016</p>
+<h1>Developing Data Products Presentation </h1><p>Calai<br/>Sun Aug 14 19:36:35 2016</p>
 
 <div class="slideContent" >
 
@@ -791,7 +791,7 @@ hljs.initHighlightingOnLoad();
 <div class="slideContent" >
 <p>This application is based on the U.S. National Oceanic and Atmospheric Administration&#39;s (NOAA) storm database from the source below, that was used for the Reproducible Research Course assignment from Coursera.</p>
 
-<p>Source <a href="https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2">here</a> </p>
+<p>Source <a href="https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2">https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2</a></p>
 
 <p>Source code for the project is available on the [GitHub] <a href="https://github.com/calcoursera/DevDataProducts">https://github.com/calcoursera/DevDataProducts</a></p>
 
@@ -803,18 +803,23 @@ hljs.initHighlightingOnLoad();
 <div class="slideContent" >
 <p>Read Data</p>
 
-<pre><code class="r">library(data.table)
-dt &lt;- fread(&#39;events.agg.csv&#39;)
-head(dt)
+<pre><code class="r">data &lt;- read.csv(&quot;events.agg.csv&quot;, sep=&quot;,&quot;, header=T)
+colnames(data)[1] &lt;- &quot;Year&quot;
+colnames(data)[3] &lt;- &quot;Evtype&quot;
+colnames(data)[4] &lt;- &quot;Count&quot;
+colnames(data)[5] &lt;- &quot;Fatalities&quot;
+colnames(data)[6] &lt;- &quot;Injuries&quot;
+colnames(data)[7] &lt;- &quot;PropDamage&quot;
+head(data)
 </code></pre>
 
-<pre><code>   YEAR   STATE  EVTYPE COUNT FATALITIES INJURIES PROPDMG CROPDMG
-1: 1950 alabama TORNADO     2          0       15 0.02750       0
-2: 1951 alabama TORNADO     5          0       13 0.03500       0
-3: 1952 alabama TORNADO    13          6      116 5.45250       0
-4: 1953 alabama TORNADO    22         16      248 3.07000       0
-5: 1954 alabama TORNADO    10          0       36 0.60753       0
-6: 1955 alabama TORNADO     8          5       27 7.58000       0
+<pre><code>  Year   STATE  Evtype Count Fatalities Injuries PropDamage CROPDMG
+1 1950 alabama TORNADO     2          0       15    0.02750       0
+2 1951 alabama TORNADO     5          0       13    0.03500       0
+3 1952 alabama TORNADO    13          6      116    5.45250       0
+4 1953 alabama TORNADO    22         16      248    3.07000       0
+5 1954 alabama TORNADO    10          0       36    0.60753       0
+6 1955 alabama TORNADO     8          5       27    7.58000       0
 </code></pre>
 
 </div>
